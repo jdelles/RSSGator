@@ -33,7 +33,7 @@ func FetchFeed(ctx context.Context, feedURL string) (*RSSFeed, error) {
 
 	request.Header.Set("User-Agent", "gator")
 
-	client := http.Client {
+	client := http.Client{
 		Timeout: 10 * time.Second,
 	}
 

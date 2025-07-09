@@ -5,14 +5,11 @@ import (
 	"fmt"
 
 	"RSSGator/commands"
+	"RSSGator/internal/database"
 )
 
-func HandlerFollowing(s *commands.State, _ commands.Command) error {
+func HandlerFollowing(s *commands.State, _ commands.Command, user database.User) error {
 	ctx := context.Background()
-	user, err := s.Db.GetUser(ctx, s.Cfg.CurrentUserName)
-	if err != nil {
-		return err
-	}
 
 	follows, err := s.Db.GetFeedFollowsByUser(ctx, user.ID)
 	if err != nil {
@@ -25,6 +22,5 @@ func HandlerFollowing(s *commands.State, _ commands.Command) error {
 
 	return nil
 }
-
 
 // Add a following command. It should print all the names of the feeds the current user is following.

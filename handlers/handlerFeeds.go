@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"fmt"
-	"context"
 	"RSSGator/commands"
+	"context"
+	"fmt"
 )
 
 func HandlerFeeds(s *commands.State, _ commands.Command) error {
@@ -12,7 +12,7 @@ func HandlerFeeds(s *commands.State, _ commands.Command) error {
 	if err != nil {
 		return err
 	}
-	
+
 	for i, feed := range feeds {
 		if i != 0 {
 			println("##############################")
